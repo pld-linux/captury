@@ -5,7 +5,7 @@ Version:	0.3.0
 Release:	0.1
 License:	GPL
 Group:		Libraries
-Source0:	http://ftp.de.debian.org/debian/pool/main/c/captury/%{name}_%{version}~svn158.orig.tar.gz
+Source0:	ftp://ftp.debian.org/debian/pool/main/c/captury/%{name}_%{version}~svn158.orig.tar.gz
 # Source0-md5:	54b2de085bd83cb11da6598f6fa46198
 URL:		http://rm-rf.in/captury
 BuildRequires:	autoconf >= 2.53
