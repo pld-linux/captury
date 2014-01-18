@@ -1,0 +1,29 @@
+--- captury-0.3.0~svn158.orig/src/libGLcaptury/TScreenshot.cpp.orig	2007-06-13 11:42:56.000000000 +0200
++++ captury-0.3.0~svn158.orig/src/libGLcaptury/TScreenshot.cpp	2014-01-18 21:16:13.203428852 +0100
+@@ -63,7 +63,7 @@
+ }
+ 
+ void TScreenshot::onWritePNG(png_structp APng, png_bytep ABuffer, png_size_t ASize) {
+-	int fd = *static_cast<int *>(APng->io_ptr);
++	int fd = *static_cast<int *>(png_get_io_ptr(APng));
+ 	write(fd, ABuffer, ASize);
+ }
+ 
+@@ -103,15 +103,12 @@
+ 	png_set_write_fn(png, &fd, &TScreenshot::onWritePNG, &TScreenshot::onFlushPNG);
+ 	png_set_compression_level(png, 4);
+ 
+-	info->width = width;
+-	info->height = height;
+-	info->bit_depth = 8;
+-	info->color_type = PNG_COLOR_TYPE_RGB;
++	png_set_IHDR(png, info, width, height, 8, PNG_COLOR_TYPE_RGB, 0, 0, 0);
+ 
+ 	png_write_info(png, info);
+ 
+ 	const int lineStride = width * 3;
+-	for (int y = info->height - 1; y >= 0; --y)
++	for (int y = height - 1; y >= 0; --y)
+ 		png_write_row(png, (png_bytep)buffer + y * lineStride);
+ 
+ 	png_write_end(png, info);
