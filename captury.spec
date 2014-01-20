@@ -2,7 +2,7 @@ Summary:	X11/GL screen capture tool
 Summary(pl.UTF-8):	Narzędzie do wykonywania zrzutów ekranu X11/GL
 Name:		captury
 Version:	0.3.0
-Release:	2
+Release:	3
 License:	GPL v2
 Group:		X11/Applications/Graphics
 Source0:	ftp://ftp.debian.org/debian/pool/main/c/captury/%{name}_%{version}~svn158.orig.tar.gz
@@ -20,6 +20,8 @@ BuildRequires:	xorg-lib-libX11-devel
 Requires:	/usr/%{_lib}/libGL.so.1
 Requires:	/usr/%{_lib}/libX11.so.6
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_noautoreq	libGLnative.so libX11native.so
 
 %description
 Captury is a screen capture application, primarly done for recording
