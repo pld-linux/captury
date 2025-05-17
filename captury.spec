@@ -5,10 +5,11 @@ Version:	0.3.0
 Release:	3
 License:	GPL v2
 Group:		X11/Applications/Graphics
-Source0:	http://ftp.debian.org/debian/pool/main/c/captury/%{name}_%{version}~svn158.orig.tar.gz
+Source0:	http://archive.debian.org/debian/pool/main/c/captury/%{name}_%{version}~svn158.orig.tar.gz
 # Source0-md5:	54b2de085bd83cb11da6598f6fa46198
 Patch0:		%{name}-libpng.patch
-URL:		http://rm-rf.in/captury
+# dead (2025.05)
+#URL:		http://rm-rf.in/captury
 BuildRequires:	OpenGL-devel
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake
