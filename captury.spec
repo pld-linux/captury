@@ -33,7 +33,7 @@ głównie do nagrywania gier OpenGL
 
 %prep
 %setup -q -n %{name}-%{version}~svn158.orig
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 %configure
